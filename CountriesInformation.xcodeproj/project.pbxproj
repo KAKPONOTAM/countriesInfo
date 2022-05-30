@@ -15,6 +15,7 @@
 		66775A7728450EEE0094449E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7628450EEE0094449E /* UIView.swift */; };
 		66775A7A28450F2E0094449E /* CountriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7928450F2E0094449E /* CountriesData.swift */; };
 		66775A7C2845101D0094449E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7B2845101D0094449E /* NetworkManager.swift */; };
+		66775A80284513FE0094449E /* URLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7F284513FE0094449E /* URLStrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		66775A7628450EEE0094449E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		66775A7928450F2E0094449E /* CountriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesData.swift; sourceTree = "<group>"; };
 		66775A7B2845101D0094449E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		66775A7F284513FE0094449E /* URLStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		66775A7228450CED0094449E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				66775A7E284513320094449E /* URLStrings */,
 				66775A7528450EDF0094449E /* Extensions */,
 			);
 			path = Utilities;
@@ -127,6 +130,14 @@
 				66775A7928450F2E0094449E /* CountriesData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		66775A7E284513320094449E /* URLStrings */ = {
+			isa = PBXGroup;
+			children = (
+				66775A7F284513FE0094449E /* URLStrings.swift */,
+			);
+			path = URLStrings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 				66775A7C2845101D0094449E /* NetworkManager.swift in Sources */,
 				66775A7728450EEE0094449E /* UIView.swift in Sources */,
 				66775A5F28450A160094449E /* LoadViewController.swift in Sources */,
+				66775A80284513FE0094449E /* URLStrings.swift in Sources */,
 				66775A5B28450A160094449E /* AppDelegate.swift in Sources */,
 				66775A7428450E4C0094449E /* CountriesViewController.swift in Sources */,
 				66775A7A28450F2E0094449E /* CountriesData.swift in Sources */,
