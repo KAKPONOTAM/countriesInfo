@@ -1,8 +1,8 @@
-//
-//  UIView.swift
-//  CountriesInformation
-//
-//  Created by Сабитов Данил on 30.05.2022.
-//
-
 import Foundation
+import UIKit
+
+extension UIView {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
