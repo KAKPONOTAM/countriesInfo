@@ -52,13 +52,53 @@
 		66775A5928450A160094449E /* CountriesInformation */ = {
 			isa = PBXGroup;
 			children = (
+				66775A7228450CED0094449E /* Utilities */,
+				66775A7128450CE70094449E /* Services */,
+				66775A6E28450CCC0094449E /* UI */,
 				66775A5A28450A160094449E /* AppDelegate.swift */,
-				66775A5E28450A160094449E /* LoadViewController.swift */,
 				66775A6328450A170094449E /* Assets.xcassets */,
 				66775A6528450A170094449E /* LaunchScreen.storyboard */,
 				66775A6828450A170094449E /* Info.plist */,
 			);
 			path = CountriesInformation;
+			sourceTree = "<group>";
+		};
+		66775A6E28450CCC0094449E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				66775A6F28450CD20094449E /* Controllers */,
+				66775A7028450CD60094449E /* CustomElements */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		66775A6F28450CD20094449E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66775A5E28450A160094449E /* LoadViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		66775A7028450CD60094449E /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		66775A7128450CE70094449E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		66775A7228450CED0094449E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
