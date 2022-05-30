@@ -51,7 +51,6 @@ class CountriesViewController: UIViewController {
     }
 }
 
-
 //MARK: - UITableViewDataSource, UITableViewDelegate
 extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
