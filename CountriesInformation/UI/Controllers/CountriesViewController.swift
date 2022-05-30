@@ -3,7 +3,7 @@ import UIKit
 class CountriesViewController: UIViewController {
     private var countriesData: CountriesData?
     
-    private lazy var countriesViewController: UITableView = {
+    private lazy var countriesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -26,6 +26,21 @@ class CountriesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavigationBar()
+        addSubview()
+        setupConstraints()
+    }
+    
+    private func addSubview() {
+        view.addSubview(countriesTableView)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            countriesTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            countriesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            countriesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            countriesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     private func setupNavigationBar() {
@@ -36,6 +51,8 @@ class CountriesViewController: UIViewController {
     }
 }
 
+
+//MARK: - UITableViewDataSource, UITableViewDelegate
 extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countriesData?.countries.count ?? 0
@@ -44,5 +61,12 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.identifier, for: indexPath)
         return cell
+    }
+}
+ 
+//MARK: - UIScrollViewDelegate
+extension CountriesViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
     }
 }
