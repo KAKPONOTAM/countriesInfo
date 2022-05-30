@@ -28,8 +28,7 @@ class LoadViewController: UIViewController {
     }
     
     private func transferData() {
-        let page = 1
-        NetworkManager.shared.getCountriesData(page: page) { [unowned self] countriesData in
+        NetworkManager.shared.getCountriesData(by: .firstPageURL) { [unowned self] countriesData in
             let countriesViewController = CountriesViewController(countriesData: countriesData)
             let navigationController = UINavigationController(rootViewController: countriesViewController)
             navigationController.modalPresentationStyle = .overFullScreen
