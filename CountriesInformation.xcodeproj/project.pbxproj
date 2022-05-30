@@ -14,6 +14,7 @@
 		66775A7428450E4C0094449E /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7328450E4C0094449E /* CountriesViewController.swift */; };
 		66775A7728450EEE0094449E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7628450EEE0094449E /* UIView.swift */; };
 		66775A7A28450F2E0094449E /* CountriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7928450F2E0094449E /* CountriesData.swift */; };
+		66775A7C2845101D0094449E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7B2845101D0094449E /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		66775A7328450E4C0094449E /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		66775A7628450EEE0094449E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		66775A7928450F2E0094449E /* CountriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesData.swift; sourceTree = "<group>"; };
+		66775A7B2845101D0094449E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		66775A7128450CE70094449E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				66775A7B2845101D0094449E /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66775A7C2845101D0094449E /* NetworkManager.swift in Sources */,
 				66775A7728450EEE0094449E /* UIView.swift in Sources */,
 				66775A5F28450A160094449E /* LoadViewController.swift in Sources */,
 				66775A5B28450A160094449E /* AppDelegate.swift in Sources */,
