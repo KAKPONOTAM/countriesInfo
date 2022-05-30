@@ -13,6 +13,7 @@ class LoadViewController: UIViewController {
         view.backgroundColor = .white
         addSubview()
         setupConstraints()
+        transferData()
     }
     
     private func addSubview() {
@@ -24,6 +25,16 @@ class LoadViewController: UIViewController {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+    
+    private func transferData() {
+        NetworkManager.shared.getCountriesData(by: .firstPageURL) { [unowned self] countriesData in
+            let countriesViewController = CountriesViewController(countriesData: countriesData)
+            let navigationController = UINavigationController(rootViewController: countriesViewController)
+            navigationController.modalPresentationStyle = .overFullScreen
+            self.present(navigationController, animated: true)
+            self.activityIndicator.isHidden = true
+        }
     }
 }
 
