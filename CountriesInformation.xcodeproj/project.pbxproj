@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6618B3A8284789D80033E3CE /* CountryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6618B3A7284789D70033E3CE /* CountryRealm.swift */; };
 		66775A5B28450A160094449E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A5A28450A160094449E /* AppDelegate.swift */; };
-		66775A5F28450A160094449E /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A5E28450A160094449E /* LoadViewController.swift */; };
 		66775A6428450A170094449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66775A6328450A170094449E /* Assets.xcassets */; };
 		66775A6728450A170094449E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66775A6528450A170094449E /* LaunchScreen.storyboard */; };
 		66775A7428450E4C0094449E /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7328450E4C0094449E /* CountriesViewController.swift */; };
@@ -16,12 +16,16 @@
 		66775A7A28450F2E0094449E /* CountriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7928450F2E0094449E /* CountriesData.swift */; };
 		66775A7C2845101D0094449E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7B2845101D0094449E /* NetworkManager.swift */; };
 		66775A80284513FE0094449E /* URLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7F284513FE0094449E /* URLStrings.swift */; };
+		66775A82284518120094449E /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A81284518120094449E /* CountryTableViewCell.swift */; };
+		668A306528466C8700730752 /* CountriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668A306428466C8700730752 /* CountriesProvider.swift */; };
+		668A30682846830700730752 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 668A30672846830700730752 /* Realm */; };
+		668A306A2846830700730752 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 668A30692846830700730752 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6618B3A7284789D70033E3CE /* CountryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRealm.swift; sourceTree = "<group>"; };
 		66775A5728450A160094449E /* CountriesInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountriesInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66775A5A28450A160094449E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66775A5E28450A160094449E /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		66775A6328450A170094449E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66775A6628450A170094449E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66775A6828450A170094449E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		66775A7928450F2E0094449E /* CountriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesData.swift; sourceTree = "<group>"; };
 		66775A7B2845101D0094449E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		66775A7F284513FE0094449E /* URLStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStrings.swift; sourceTree = "<group>"; };
+		66775A81284518120094449E /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		668A306428466C8700730752 /* CountriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668A306A2846830700730752 /* RealmSwift in Frameworks */,
+				668A30682846830700730752 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +94,6 @@
 		66775A6F28450CD20094449E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				66775A5E28450A160094449E /* LoadViewController.swift */,
 				66775A7328450E4C0094449E /* CountriesViewController.swift */,
 			);
 			path = Controllers;
@@ -95,6 +102,7 @@
 		66775A7028450CD60094449E /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
+				66775A81284518120094449E /* CountryTableViewCell.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				66775A7B2845101D0094449E /* NetworkManager.swift */,
+				668A306428466C8700730752 /* CountriesProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -128,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				66775A7928450F2E0094449E /* CountriesData.swift */,
+				6618B3A7284789D70033E3CE /* CountryRealm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +166,10 @@
 			dependencies = (
 			);
 			name = CountriesInformation;
+			packageProductDependencies = (
+				668A30672846830700730752 /* Realm */,
+				668A30692846830700730752 /* RealmSwift */,
+			);
 			productName = CountriesInformation;
 			productReference = 66775A5728450A160094449E /* CountriesInformation.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +198,9 @@
 				Base,
 			);
 			mainGroup = 66775A4E28450A160094449E;
+			packageReferences = (
+				668A30662846830700730752 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 66775A5828450A160094449E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -212,11 +229,13 @@
 			files = (
 				66775A7C2845101D0094449E /* NetworkManager.swift in Sources */,
 				66775A7728450EEE0094449E /* UIView.swift in Sources */,
-				66775A5F28450A160094449E /* LoadViewController.swift in Sources */,
 				66775A80284513FE0094449E /* URLStrings.swift in Sources */,
+				66775A82284518120094449E /* CountryTableViewCell.swift in Sources */,
 				66775A5B28450A160094449E /* AppDelegate.swift in Sources */,
 				66775A7428450E4C0094449E /* CountriesViewController.swift in Sources */,
+				6618B3A8284789D80033E3CE /* CountryRealm.swift in Sources */,
 				66775A7A28450F2E0094449E /* CountriesData.swift in Sources */,
+				668A306528466C8700730752 /* CountriesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +443,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		668A30662846830700730752 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		668A30672846830700730752 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 668A30662846830700730752 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		668A30692846830700730752 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 668A30662846830700730752 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 66775A4F28450A160094449E /* Project object */;
 }

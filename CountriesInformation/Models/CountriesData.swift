@@ -1,8 +1,9 @@
 import Foundation
+import UIKit
 
 struct CountriesData: Decodable {
     let next: String
-    let countries: [Country]
+    var countries: [Country]
 }
 
 struct Country: Decodable {

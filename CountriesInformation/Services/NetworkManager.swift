@@ -1,8 +1,9 @@
 import Foundation
+import UIKit
+
 
 class NetworkManager {
     static let shared = NetworkManager()
-    private init() {}
     
     func getCountriesData(by urlStrings: URLStrings, completion: @escaping (CountriesData) -> ()) {
         let urlString = urlStrings.stringURL
@@ -25,5 +26,12 @@ class NetworkManager {
         }
         
         dataTask.resume()
+    }
+    
+    func loadImage(from urlString: String) -> Data {
+        guard let countryImageURL = URL(string: urlString),
+              let countryImageData = try? Data(contentsOf: countryImageURL) else { return Data() }
+        
+        return countryImageData
     }
 }
