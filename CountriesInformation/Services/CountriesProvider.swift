@@ -4,29 +4,27 @@ import RealmSwift
 
 class CountriesProvider {
     private var realm = try? Realm()
-    private let imageLoader: ImageLoadable
     
-    init(imageLoader: ImageLoadable) {
-        self.imageLoader = imageLoader
-        
+    init() {
         var config = Realm.Configuration()
         config.deleteRealmIfMigrationNeeded = true
         realm = try? Realm(configuration: config)
     }
     
-    func getImage(by country: Country, completion: @escaping (UIImage, String) -> ()) {
-        guard let countryImageURL = URL(string: country.countryInfo.flag),
-              let countryImageData = try? Data(contentsOf: countryImageURL) else { return }
+    func getCountriesFromRealm() -> CountriesRealmData? {
+        guard let countriesRealmData = realm?.objects(CountriesRealmData.self).first else { return nil }
+        return countriesRealmData
     }
     
-    private func getImageFromRealm(from key: String) -> CountryRealm? {
-        guard let countries = realm?.object(ofType: CountryRealm.self, forPrimaryKey: key) else { return nil }
-        return countries
-    }
-    
-    private func saveCountry(by country: CountryRealm) {
+    func saveCountry(by countries: [CountryRealm]) {
         try? realm?.write {
-            realm?.add(country, update: .modified)
+            countries.forEach { realm?.add($0, update: .all) }
+        }
+    }
+    
+    func saveCountryRealmData(countryRealmData: CountriesRealmData) {
+        try? realm?.write {
+            realm?.add(countryRealmData, update: .all)
         }
     }
 }
