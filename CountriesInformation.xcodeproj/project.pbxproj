@@ -11,7 +11,6 @@
 		66775A5B28450A160094449E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A5A28450A160094449E /* AppDelegate.swift */; };
 		66775A6428450A170094449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66775A6328450A170094449E /* Assets.xcassets */; };
 		66775A6728450A170094449E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66775A6528450A170094449E /* LaunchScreen.storyboard */; };
-		66775A7428450E4C0094449E /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7328450E4C0094449E /* CountriesViewController.swift */; };
 		66775A7728450EEE0094449E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7628450EEE0094449E /* UIView.swift */; };
 		66775A7A28450F2E0094449E /* CountriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7928450F2E0094449E /* CountriesData.swift */; };
 		66775A7C2845101D0094449E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66775A7B2845101D0094449E /* NetworkManager.swift */; };
@@ -20,6 +19,8 @@
 		668A306528466C8700730752 /* CountriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668A306428466C8700730752 /* CountriesProvider.swift */; };
 		668A30682846830700730752 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 668A30672846830700730752 /* Realm */; };
 		668A306A2846830700730752 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 668A30692846830700730752 /* RealmSwift */; };
+		66D9720A284925A900A01C29 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D97209284925A900A01C29 /* CountriesViewController.swift */; };
+		66D9720C284925C100A01C29 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9720B284925C100A01C29 /* DetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +30,14 @@
 		66775A6328450A170094449E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66775A6628450A170094449E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66775A6828450A170094449E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66775A7328450E4C0094449E /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		66775A7628450EEE0094449E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		66775A7928450F2E0094449E /* CountriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesData.swift; sourceTree = "<group>"; };
 		66775A7B2845101D0094449E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		66775A7F284513FE0094449E /* URLStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStrings.swift; sourceTree = "<group>"; };
 		66775A81284518120094449E /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		668A306428466C8700730752 /* CountriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProvider.swift; sourceTree = "<group>"; };
+		66D97209284925A900A01C29 /* CountriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		66D9720B284925C100A01C29 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +96,8 @@
 		66775A6F28450CD20094449E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				66775A7328450E4C0094449E /* CountriesViewController.swift */,
+				66D97209284925A900A01C29 /* CountriesViewController.swift */,
+				66D9720B284925C100A01C29 /* DetailedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -229,10 +232,11 @@
 			files = (
 				66775A7C2845101D0094449E /* NetworkManager.swift in Sources */,
 				66775A7728450EEE0094449E /* UIView.swift in Sources */,
+				66D9720C284925C100A01C29 /* DetailedViewController.swift in Sources */,
+				66D9720A284925A900A01C29 /* CountriesViewController.swift in Sources */,
 				66775A80284513FE0094449E /* URLStrings.swift in Sources */,
 				66775A82284518120094449E /* CountryTableViewCell.swift in Sources */,
 				66775A5B28450A160094449E /* AppDelegate.swift in Sources */,
-				66775A7428450E4C0094449E /* CountriesViewController.swift in Sources */,
 				6618B3A8284789D80033E3CE /* CountryRealm.swift in Sources */,
 				66775A7A28450F2E0094449E /* CountriesData.swift in Sources */,
 				668A306528466C8700730752 /* CountriesProvider.swift in Sources */,
