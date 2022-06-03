@@ -15,19 +15,6 @@ class CountriesViewController: UIViewController {
         return tableView
     }()
     
-    private let containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let loadActivityIndicator: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style: .large)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.startAnimating()
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -40,19 +27,33 @@ class CountriesViewController: UIViewController {
     
     private func addSubview() {
         view.addSubview(countriesTableView)
-        view.addSubview(containerView)
-        containerView.addSubview(loadActivityIndicator)
     }
     
     private func getCountriesDataFromNetwork(by urlString: URLStrings) {
         NetworkManager.shared.getCountriesData(by: urlString) { [weak self] countriesData  in
             self?.countriesTableView.tableFooterView = self?.createFooterViewWithLoadSpinner()
             DispatchQueue.global(qos: .userInitiated).async {
+                
                 let countryRealm: [CountryRealm] = countriesData.countries.map {
                     let images = List<String>()
                     images.append(objectsIn: $0.countryInfo.images.map { $0 })
+                    let countryImagesData = List<Data>()
+                    var countryImagesUrl = [URL]()
+                    let imagesUrlStringArray = Array(images)
+                    
+                    countryImagesUrl = imagesUrlStringArray.map {
+                        guard let url = URL(string: $0) else { return URL(fileURLWithPath: "") }
+                        return url
+                    }
+                    
+                    let data = countryImagesUrl.map { try? Data(contentsOf: $0) }
+                    
+                    for value in data {
+                        countryImagesData.append(value ?? Data())
+                    }
+                    
                     let countryImageData = NetworkManager.shared.loadImage(from: $0.countryInfo.flag)
-                    let countryRealmData = CountryRealm(name: $0.name, continent: $0.continent, capital: $0.capital, population: $0.population, smallDescription: $0.smallDescription, countryDescription: $0.smallDescription, image: $0.image, flag: $0.countryInfo.flag, countryImageData: countryImageData, images: images)
+                    let countryRealmData = CountryRealm(name: $0.name, continent: $0.continent, capital: $0.capital, population: $0.population, smallDescription: $0.smallDescription, countryDescription: $0.smallDescription, image: $0.image, flag: $0.countryInfo.flag, countryImageData: countryImageData, images: images, imagesData: countryImagesData)
                     
                     return countryRealmData
                 }
@@ -66,19 +67,15 @@ class CountriesViewController: UIViewController {
                     self?.countriesTableView.tableFooterView = nil
                 }
             }
-            
         }
     }
     
     private func loadCountries() {
         if let countryRealmData = countriesProvider.getCountriesFromRealm() {
             self.countryRealmData = countryRealmData
-            
         } else {
             getCountriesDataFromNetwork(by: .firstPageURL)
         }
-        
-        containerView.removeFromSuperview()
     }
     
     
@@ -102,18 +99,6 @@ class CountriesViewController: UIViewController {
             countriesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             countriesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             countriesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            loadActivityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            loadActivityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ])
     }
     
