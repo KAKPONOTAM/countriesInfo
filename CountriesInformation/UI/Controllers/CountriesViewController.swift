@@ -141,7 +141,8 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailedViewController = DetailedViewController()
+        guard let countryRealm = countryRealmData?.countries?[indexPath.row] else { return }
+        let detailedViewController = DetailedViewController(countryRealm: countryRealm)
         navigationController?.pushViewController(detailedViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

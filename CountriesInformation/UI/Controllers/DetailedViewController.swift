@@ -1,6 +1,7 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
+    private var countryRealm: CountryRealm?
     private lazy var countryImagesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -24,8 +25,20 @@ class DetailedViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CountryDescriptionTableViewCell.self, forCellReuseIdentifier: CountryDescriptionTableViewCell.identifier)
         return tableView
     }()
+    
+    init(countryRealm: CountryRealm?) {
+        self.countryRealm = countryRealm
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.countryRealm = nil
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +78,23 @@ extension DetailedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let countryDetailsCell = tableView.dequeueReusableCell(withIdentifier: CountryDescriptionTableViewCell.identifier, for: indexPath) as? CountryDescriptionTableViewCell,
+              let countryRealm = countryRealm else { return UITableViewCell() }
+        
         let descriptionCell = DetailedViewControllerCellTypes.getRow(index: indexPath.row)
-        return UITableViewCell()
+        
+        switch descriptionCell {
+        case .capital:
+            countryDetailsCell.configure(with: .capital, with: countryRealm)
+        case .population:
+            countryDetailsCell.configure(with: .population, with: countryRealm)
+        case .continent:
+            countryDetailsCell.configure(with: .continent, with: countryRealm)
+        case .description:
+            countryDetailsCell.configure(with: .description, with: countryRealm)
+        }
+        
+        return countryDetailsCell
     }
 }
 
