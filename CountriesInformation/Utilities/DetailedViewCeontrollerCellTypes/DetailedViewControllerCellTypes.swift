@@ -13,4 +13,17 @@ enum DetailedViewControllerCellTypes: Int, CaseIterable {
     static func getRowsAmount() -> Int {
         return allCases.count
     }
+    
+    var title: String {
+        switch self {
+        case .capital:
+            return "Capital"
+        case .population:
+            return "Population"
+        case .continent:
+            return "Continent"
+        case .description:
+            return ""
+        }
+    }
 }
