@@ -33,8 +33,9 @@ class CountryRealm: Object {
     dynamic var flag: String = ""
     dynamic var countryImageData: Data = Data()
     dynamic var images = List<String>()
+    dynamic var imagesData = List<Data>()
     
-    convenience init(name: String, continent: String, capital: String, population: Int, smallDescription: String, countryDescription: String, image: String, flag: String, countryImageData: Data, images: List<String>) {
+    convenience init(name: String, continent: String, capital: String, population: Int, smallDescription: String, countryDescription: String, image: String, flag: String, countryImageData: Data, images: List<String>, imagesData: List<Data>) {
         self.init()
         self.name = name
         self.continent = continent
@@ -46,6 +47,7 @@ class CountryRealm: Object {
         self.flag = flag
         self.countryImageData = countryImageData
         self.images = images
+        self.imagesData = imagesData
     }
     
     override class func primaryKey() -> String? {

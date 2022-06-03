@@ -7,6 +7,7 @@ class DetailedViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
+        collectionView.register(CountryImagesCollectionViewCell.self, forCellWithReuseIdentifier: CountryImagesCollectionViewCell.identifier)
         collectionView.backgroundColor = .green
         return collectionView
     }()
@@ -56,19 +57,36 @@ class DetailedViewController: UIViewController {
     }
 }
 
+
+//MARK: -  UITableViewDataSource, UITableViewDelegate
 extension DetailedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return DetailedViewControllerCellTypes.getRowsAmount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let descriptionCell = DetailedViewControllerCellTypes.getRow(index: indexPath.row)
         return UITableViewCell()
     }
 }
 
-extension DetailedViewController: UIScrollViewDelegate, UICollectionViewDelegate  {
+//MARK: -  UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource
+extension DetailedViewController: UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let imagesCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: CountryImagesCollectionViewCell.identifier, for: indexPath) as? CountryImagesCollectionViewCell else { return UICollectionViewCell() }
+        return imagesCollectionViewCell
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let count = scrollView.contentOffset.x / UIScreen.main.bounds.size.width
         pageControl.currentPage = Int(count)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
