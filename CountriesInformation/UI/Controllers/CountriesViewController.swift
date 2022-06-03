@@ -156,6 +156,8 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailedViewController = DetailedViewController()
+        navigationController?.pushViewController(detailedViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
